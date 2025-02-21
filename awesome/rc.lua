@@ -57,7 +57,8 @@ beautiful.get().wallpaper = "/home/dahlen/func/wallpapers/Untitled design(4).png
 -- This is used later as the default terminal and editor to run.
 terminal = "kitty"
 browser = "firefox"
-editor = os.getenv("EDITOR") or "nano"
+pdfreader = "zathura"
+editor = "nvim"
 editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
@@ -113,6 +114,7 @@ mymainmenu = awful.menu({
 		{ "awesome", myawesomemenu, beautiful.awesome_icon },
 		{ "open terminal", terminal },
 		{ "open browser", browser },
+		{ "open pdf", pdfreader },
 	},
 })
 
