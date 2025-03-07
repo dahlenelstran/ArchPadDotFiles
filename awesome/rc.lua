@@ -58,6 +58,7 @@ beautiful.get().wallpaper = "/home/dahlen/func/wallpapers/Untitled design(4).png
 terminal = "kitty"
 browser = "firefox"
 pdfreader = "zathura"
+applauncher = "rofi -show drun"
 editor = "nvim"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -265,7 +266,20 @@ root.buttons(gears.table.join(
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
-	awful.key({ modkey }, "s", hotkeys_popup.show_help, { description = "show help", group = "awesome" }),
+	-- My Keybinds I've Added:
+
+	awful.key({ modkey }, "b", function()
+		awful.spawn(browser)
+	end, { description = "open browser", group = "launcher" }),
+	awful.key({ modkey }, "q", function()
+		awful.spawn(terminal)
+	end, { description = "open terminal", group = "launcher" }),
+	awful.key({ modkey }, "space", function()
+		awful.spawn(applauncher)
+	end, { description = "open app launcher", group = "launcher" }),
+
+	--
+
 	awful.key({ modkey }, "Left", awful.tag.viewprev, { description = "view previous", group = "tag" }),
 	awful.key({ modkey }, "Right", awful.tag.viewnext, { description = "view next", group = "tag" }),
 	awful.key({ modkey }, "Escape", awful.tag.history.restore, { description = "go back", group = "tag" }),
@@ -305,9 +319,6 @@ globalkeys = gears.table.join(
 	awful.key({ modkey }, "Return", function()
 		awful.spawn(terminal)
 	end, { description = "open a terminal", group = "launcher" }),
-	awful.key({ modkey }, "b", function()
-		awful.spawn(browser)
-	end, { description = "open browser", group = "launcher" }),
 	awful.key({ modkey, "Control" }, "r", awesome.restart, { description = "reload awesome", group = "awesome" }),
 	awful.key({ modkey, "Shift" }, "q", awesome.quit, { description = "quit awesome", group = "awesome" }),
 
@@ -329,7 +340,7 @@ globalkeys = gears.table.join(
 	awful.key({ modkey, "Control" }, "l", function()
 		awful.tag.incncol(-1, nil, true)
 	end, { description = "decrease the number of columns", group = "layout" }),
-	awful.key({ modkey }, "space", function()
+	awful.key({ modkey }, "s", function()
 		awful.layout.inc(1)
 	end, { description = "select next", group = "layout" }),
 	awful.key({ modkey, "Shift" }, "space", function()
