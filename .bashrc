@@ -9,7 +9,9 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 PS1=' \w  '
 
-alias neofetch='neofetch --source /home/dahlen/func/asciiart/demonking.txt --colors'
+(cat ~/.cache/wal/sequences &)
+
+alias neofetch='neofetch --source /home/dahlen/func/asciiart/skull.txt --colors'
 
 neofetch
 

@@ -14,6 +14,9 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- hopefully this will make the clipboard work :)
+vim.opt.clipboard:append("unnamedplus")
+
 require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins

@@ -113,9 +113,6 @@ myawesomemenu = {
 mymainmenu = awful.menu({
 	items = {
 		{ "awesome", myawesomemenu, beautiful.awesome_icon },
-		{ "open terminal", terminal },
-		{ "open browser", browser },
-		{ "open pdf", pdfreader },
 	},
 })
 
@@ -183,7 +180,7 @@ local function set_wallpaper(s)
 		if type(wallpaper) == "function" then
 			wallpaper = wallpaper(s)
 		end
-		gears.wallpaper.maximized(wallpaper, s, true)
+		gears.wallpaper.maximized("/home/dahlen/func/wallpapers/thinkpadteardown.jpg", s, true)
 	end
 end
 
@@ -231,7 +228,7 @@ awful.screen.connect_for_each_screen(function(s)
 	})
 
 	-- Create the wibox
-	s.mywibox = awful.wibar({ position = "top", screen = s })
+	s.mywibox = awful.wibar({ position = "bottom", screen = s, bg = "#000000" })
 
 	-- Add widgets to the wibox
 	s.mywibox:setup({
@@ -286,7 +283,7 @@ globalkeys = gears.table.join(
 
 	awful.key({ modkey }, "j", function()
 		awful.client.focus.byidx(1)
-	end, { description = "focus next by index", group = "client" }),
+	end, { descsiption = "focus next by index", group = "client" }),
 	awful.key({ modkey }, "k", function()
 		awful.client.focus.byidx(-1)
 	end, { description = "focus previous by index", group = "client" }),
@@ -491,7 +488,7 @@ awful.rules.rules = {
 			keys = clientkeys,
 			buttons = clientbuttons,
 			screen = awful.screen.preferred,
-			placement = awful.placement.no_overlap + awful.placement.no_offscreen,
+			placement = awful.placement.centered,
 		},
 	},
 
