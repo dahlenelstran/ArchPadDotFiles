@@ -492,7 +492,7 @@ awful.rules.rules = {
 		},
 	},
 
-	-- Floating clients.
+	-- Floating clients
 	{
 		rule_any = {
 			instance = {
@@ -601,3 +601,5 @@ client.connect_signal("unfocus", function(c)
 	c.border_color = beautiful.border_normal
 end)
 -- }}}
+--
+awful.spawn.with_shell("sleep 2 && xrandr --output HDMI-2 --auto --right-of eDP-1")
